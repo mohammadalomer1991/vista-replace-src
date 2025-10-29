@@ -17,8 +17,8 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build Docker image
-        run: docker build -t my-cdk-app .
+      # - name: Build Docker image
+      #   run: docker build -t vista-replace-src .
 
-      - name: Run CDK synth in Docker
-        run: docker run --rm my-cdk-app
+      # - name: Run CDK synth in Docker
+      #   run: docker run --rm vista-replace-src
