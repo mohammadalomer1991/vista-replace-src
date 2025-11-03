@@ -1,5 +1,4 @@
-name: this_specific_workflow_action_name
-
+name: this_specifc_worklflow_action 
 on:
   push:
     branches:
@@ -9,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: step1
+      uses: actions/checkout@v4
