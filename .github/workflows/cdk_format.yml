@@ -1,22 +1,18 @@
----
-name: action_when_pull_request_happens_to_main
-
+name: install_node
 on:
   pull_request:
     branches:
       - main
-    paths:
-      - "infra/*"
 
 jobs:
-  cdk_snapshot:
-    timeout-minutes: 5
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: install_node
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
