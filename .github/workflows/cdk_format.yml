@@ -1,13 +1,22 @@
-name: this_specifc_worklflow_action 
+---
+name: action_when_pull_request_happens_to_main
+
 on:
-  push:
+  pull_request:
     branches:
       - main
-  workflow_dispatch:
+    paths:
+      - "infra/*"
 
 jobs:
-  build:
+  cdk_snapshot:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - name: step1
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: install_node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
