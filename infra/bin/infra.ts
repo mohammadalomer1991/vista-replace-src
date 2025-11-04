@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// cdk
 import * as cdk from 'aws-cdk-lib';
 import { InfraStack } from '../lib/infra-stack';
 const app = new cdk.App();
