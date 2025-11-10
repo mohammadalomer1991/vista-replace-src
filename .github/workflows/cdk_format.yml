@@ -1,18 +1,18 @@
-name: install_node
+name: create_test_branch_and_install_node
 on:
+  push: 
+    branches:
+      - test
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/node@v4
         with:
-          node-version: 20
+          - version:20

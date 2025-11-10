@@ -1,0 +1,25 @@
+name: Check Kubernetes Directory
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - test
+  workflow_dispatch:
+
+jobs:
+  confirm_kubedirec_exist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check if 'kubernetes' directory exists
+        run: |
+          if [ -d "./kubernetes" ]; then
+            echo "✅ Directory exists"
+          else
+            echo "❌ Directory does not exist"
+            exit 1
+          fi
